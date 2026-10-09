@@ -1,0 +1,211 @@
+/* CSS page login */
+
+.login {
+    min-height: 100vh;
+    display: flex;
+}
+
+.login-contenu {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ----------- Partie gauche ----------- */
+
+.presentation {
+    background: var(--vert);
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.presentation::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(201, 168, 76, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 168, 76, 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+}
+
+.presentation::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(201, 168, 76, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 168, 76, 0.12) 1px, transparent 1px);
+    background-size: 140px 140px;
+    pointer-events: none;
+}
+
+.present_contenu {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 2.5rem;
+}
+
+.logo-titre {
+    font-family: var(--font-titre);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--creme);
+    line-height: 1.1;
+}
+
+.logo-titre em {
+    color: var(--or-light);
+    font-size: 1.1rem;
+}
+
+.present_shop {
+    margin-top: 1rem;
+}
+
+.present_shop p {
+    color: rgba(245, 240, 232, 0.75);
+    font-size: 0.95rem;
+    line-height: 2;
+    margin-bottom: 0.75rem;
+}
+
+.info-auteur {
+    padding-top: 1.5rem;
+}
+
+.info-auteur p {
+    color: rgba(245, 240, 232, 0.5);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.info-auteur strong {
+    color: var(--or-light);
+    font-size: 0.9rem;
+    display: block;
+}
+
+/* ----------- Partie droite ----------- */
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background: var(--creme);
+}
+
+.connexion {
+    background: var(--blanc);
+    border-radius: var(--radius-lg);
+    padding: 2.75rem 2.5rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--creme-dark);
+    position: relative;
+    animation: carte-entree 0.5s ease;
+}
+
+@keyframes carte-entree {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.connexion h1 {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.connexion>p {
+    color: var(--brun-light);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* Champs du formulaire */
+
+.champ {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.4rem;
+}
+
+.champ label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--brun);
+    margin-bottom: 0.4rem;
+}
+
+.champ input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--creme-dark);
+    border-radius: var(--radius-md);
+    background: var(--blanc);
+    font-size: 1rem;
+    color: var(--brun);
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.champ input:focus {
+    border-color: var(--vert);
+}
+
+.champ input.invalide {
+    border-color: var(--rouge);
+}
+
+.champ input.valide {
+    border-color: var(--vert-light);
+}
+
+/* Erreurs */
+
+.err-champ {
+    color: var(--rouge);
+    font-size: 0.82rem;
+    font-weight: 500;
+    min-height: 1.1rem;
+    margin-top: 0.25rem;
+}
+
+/* Bouton */
+
+#form-login .btn-principal {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.95rem;
+    margin-top: 0.5rem;
+    background: linear-gradient(135deg, var(--vert) 0%, var(--vert-light) 100%);
+}

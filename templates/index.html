@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Équipement Scolaire</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body class="login">
+    <div class="login-contenu">
+
+        <aside class="presentation">
+            <div class="present_contenu">
+                <div class="logo">
+                    <span>✎</span>
+                    <span class="logo-titre"><em>Equipement Scolaire ツ</em></span>
+                </div>
+                <div class="present_shop">
+                    <p>Bienvenue chez Équipement Scolaire ツ, votre coopérative scolaire en ligne.</p>
+                    <p>Nous vous proposons toutes sortes de fournitures scolaires : cahiers, crayons, calculatrices,
+                        sacs d'école et bien plus encore.</p>
+                </div>
+                <div class="info-auteur">
+                    <p>Réalisé par :</p>
+                    <strong>Abdoul Wadoud Bello</strong>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="connexion">
+                <h1>Connexion</h1>
+                <p>Connectez-vous pour commencer votre commande.</p>
+
+                <form id="form-login">
+
+                    <div class="champ">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Ex : Marie" maxlength="50">
+                        <span class="err-champ" id="err-prenom"></span>
+                    </div>
+
+                    <div class="champ">
+                        <label for="courriel">Courriel</label>
+                        <input type="email" id="courriel" name="courriel" placeholder="Ex : marie@exemple.com"
+                            maxlength="100">
+                        <span class="err-champ" id="err-courriel"></span>
+                    </div>
+
+                    <button type="submit" class="btn-principal" id="btn-login">Accéder à la boutique</button>
+
+                </form>
+            </div>
+        </main>
+
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+
+</html>

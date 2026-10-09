@@ -1,0 +1,293 @@
+/* CSS page formulaire de commande */
+
+body.formulaire {
+    min-height: 100vh;
+    background: var(--creme);
+}
+
+body.formulaire main {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+    align-items: start;
+}
+
+.questionnaire {
+    min-width: 0;
+}
+
+.intro-quest {
+    margin-bottom: 2rem;
+}
+
+.intro-quest h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.intro-quest p {
+    color: var(--brun-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+
+/* Questions */
+
+.question-cachee,
+.question-active {
+    background: var(--blanc);
+    border: 1px solid var(--creme-dark);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+}
+
+.question-cachee {
+    display: none;
+}
+
+.question-active {
+    display: flex;
+    border-left: 4px solid var(--vert);
+    animation: apparition 0.3s ease;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quest-nbr {
+    font-family: var(--font-titre);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--creme-dark);
+    line-height: 1;
+    min-width: 40px;
+    user-select: none;
+}
+
+.question-active .quest-nbr {
+    color: var(--vert-pale);
+}
+
+.quest-contenu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.quest-contenu label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--brun);
+    line-height: 1.4;
+}
+
+.quest-contenu input,
+.quest-contenu select {
+    width: 100%;
+    max-width: 340px;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--creme-dark);
+    border-radius: var(--radius-md);
+    background: var(--blanc);
+    font-size: 1rem;
+    color: var(--brun);
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.quest-contenu input:focus,
+.quest-contenu select:focus {
+    border-color: var(--vert);
+}
+
+.quest-contenu input.invalide,
+.quest-contenu select.invalide {
+    border-color: var(--rouge);
+}
+
+.quest-contenu input.valide,
+.quest-contenu select.valide {
+    border-color: var(--vert-light);
+}
+
+/* Boutons radio oui/non */
+
+.groupe-radio {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.choix-radio {
+    position: relative;
+    cursor: pointer;
+}
+
+.choix-radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.choix-radio span {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--creme-dark);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--brun);
+    background: var(--blanc);
+    transition: all var(--transition);
+    cursor: pointer;
+}
+
+.choix-radio span:hover {
+    border-color: var(--vert);
+    background: var(--vert-pale);
+    color: var(--vert);
+}
+
+.choix-radio input:checked+span {
+    border-color: var(--vert);
+    background: var(--vert);
+    color: var(--creme);
+}
+
+.err-champ {
+    color: var(--rouge);
+    font-size: 0.82rem;
+    font-weight: 500;
+    min-height: 1rem;
+    margin-top: 0.1rem;
+}
+
+.note-champ {
+    font-size: 0.78rem;
+    color: var(--gris);
+    font-style: italic;
+}
+
+.div-bouton {
+    margin-top: 1.5rem;
+}
+
+.div-bouton .btn-principal {
+    font-size: 1.05rem;
+    padding: 1rem 2rem;
+}
+
+/* Panneau de refus */
+
+.panneau-refus-cachee {
+    display: none;
+    background: var(--blanc);
+    border: 2px solid var(--rouge);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
+    text-align: center;
+    animation: apparition 0.4s ease;
+}
+
+.panneau-refus-cachee.visible {
+    display: block;
+}
+
+.panneau-refus-cachee h2 {
+    color: var(--rouge);
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.panneau-refus-cachee p {
+    color: var(--brun-light);
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+}
+
+/* Sidebar résumé */
+
+.resume-commande {
+    position: sticky;
+    top: 80px;
+}
+
+.recap {
+    background: var(--blanc);
+    border: 1px solid var(--creme-dark);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.recap h3 {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--creme-dark);
+}
+
+.recap-ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+    padding: 0.45rem 0;
+    color: var(--brun-light);
+    gap: 0.5rem;
+}
+
+.recap-ligne span:first-child {
+    color: var(--gris);
+    font-size: 0.82rem;
+}
+
+.recap-ligne span:last-child {
+    font-weight: 500;
+    color: var(--brun);
+    text-align: right;
+}
+
+.recap-separateurr {
+    height: 1px;
+    background: var(--creme-dark);
+    margin: 0.75rem 0;
+}
+
+.recap-total span:last-child {
+    color: var(--vert);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.recap-rabais span:last-child {
+    color: var(--or);
+    font-weight: 700;
+}
+
+.recap-final span:last-child {
+    color: var(--vert);
+    font-weight: 700;
+    font-size: 1.1rem;
+}

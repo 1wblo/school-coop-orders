@@ -1,0 +1,180 @@
+/* styles globaux partagés */
+:root {
+    --creme: #f5f0e8;
+    --creme-dark: #ede6d6;
+    --vert: #2d5a3d;
+    --vert-light: #3d7a55;
+    --vert-pale: #e8f0ea;
+    --or: #c9a84c;
+    --or-light: #e8cc7e;
+    --brun: #4a3728;
+    --brun-light: #7a6352;
+    --rouge: #c0392b;
+    --gris: #888;
+    --blanc: #ffffff;
+
+    --font-titre: Georgia, serif;
+    --font-corps: Arial, sans-serif;
+
+    --radius-md: 12px;
+    --radius-lg: 20px;
+
+    --shadow-sm: 0 2px 8px rgba(45, 90, 61, 0.10);
+    --shadow-md: 0 6px 24px rgba(45, 90, 61, 0.14);
+    --shadow-lg: 0 16px 48px rgba(45, 90, 61, 0.18);
+
+    --transition: 0.25s ease;
+}
+
+/* Reset de base */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-corps);
+    background-color: var(--creme);
+    color: var(--brun);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Typographie */
+
+h1 {
+    font-family: var(--font-titre);
+    font-weight: 700;
+    color: var(--vert);
+    line-height: 1.2;
+}
+
+h2 {
+    font-family: var(--font-titre);
+    font-weight: 700;
+    color: var(--brun);
+}
+
+h3 {
+    font-family: var(--font-titre);
+    font-weight: 700;
+    color: var(--vert);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* En-tête partagé (formulaire + confirmation) */
+
+.entete-form-conf {
+    background: var(--vert);
+    padding: 0.75rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.entete-deco {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.entete-form-conf .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--creme);
+    font-size: 1.5rem;
+}
+
+.entete-form-conf .logo:hover {
+    opacity: 0.8;
+}
+
+.entete-form-conf .logo-titre {
+    font-family: var(--font-titre);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--creme);
+}
+
+.entete-form-conf .logo-titre em {
+    color: var(--or-light);
+    font-size: 1rem;
+}
+
+.info-user {
+    font-size: 0.85rem;
+    color: var(--or-light);
+}
+
+/* Boutons */
+
+.btn-principal {
+    display: inline-flex;
+    align-items: center;
+    background: var(--vert);
+    color: var(--creme);
+    font-family: var(--font-corps);
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.75rem;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-principal:hover {
+    background: var(--vert-light);
+    transform: translateY(-2px);
+}
+
+.btn-principal:active {
+    transform: translateY(0);
+}
+
+.btn-secondaire {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: var(--vert);
+    font-family: var(--font-corps);
+    font-size: 1rem;
+    font-weight: 500;
+    border: 2px solid var(--vert);
+    border-radius: var(--radius-md);
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-secondaire:hover {
+    background: var(--vert);
+    color: var(--creme);
+    transform: translateY(-2px);
+}
+
+/* Utilitaires */
+
+.cache {
+    display: none !important;
+}

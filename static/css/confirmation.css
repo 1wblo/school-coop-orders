@@ -1,0 +1,220 @@
+/* Confirmation.css*/
+
+body.confirmation {
+    min-height: 100vh;
+    background: var(--creme);
+}
+
+body.confirmation main {
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+}
+
+/* Carte principale */
+
+.carte-confirmation {
+    background: var(--blanc);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    width: 100%;
+    max-width: 580px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--creme-dark);
+    animation: apparition 0.5s ease;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Icône de succès */
+
+.icone-succes {
+    width: 72px;
+    height: 72px;
+    background: var(--vert);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--blanc);
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+/* Titre et sous-titre */
+
+.carte-confirmation h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.sous-titre {
+    text-align: center;
+    color: var(--brun-light);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Détails de la commande */
+
+.details-commande {
+    background: var(--creme);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.75rem;
+    border: 1px solid var(--creme-dark);
+}
+
+.ligne-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.55rem 0;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.detail-label {
+    color: var(--gris);
+    font-size: 0.85rem;
+}
+
+.detail-val {
+    font-weight: 500;
+    color: var(--brun);
+    text-align: right;
+}
+
+.separateur {
+    border: none;
+    border-top: 1px solid var(--creme-dark);
+    margin: 0.5rem 0;
+}
+
+.sous-total .detail-val {
+    color: var(--brun-light);
+}
+
+.rabais .detail-val {
+    color: var(--or);
+    font-weight: 700;
+}
+
+.total .detail-label {
+    color: var(--brun);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.total .detail-val {
+    color: var(--vert);
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+/* Message de remerciement */
+
+.msg-remerciement {
+    text-align: center;
+    color: var(--brun-light);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+    padding: 0 1rem;
+}
+
+/* Bouton nouvelle commande */
+
+.zone-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.zone-actions .btn-principal {
+    font-size: 1rem;
+    padding: 0.9rem 1.8rem;
+}
+
+.section-admin {
+    width: 100%;
+    max-width: 580px;
+    margin: 2rem auto 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.bloc-admin {
+    background: var(--blanc);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    border: 1px solid var(--creme-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.bloc-admin h2 {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--creme-dark);
+    font-size: 1.1rem;
+}
+
+.bloc-admin ul {
+    list-style: none;
+    margin-bottom: 1.25rem;
+}
+
+.item-produit,
+.item-commande {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.55rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--creme-dark);
+    color: var(--brun);
+}
+
+.btn-supprimer {
+    background: var(--rouge);
+    color: var(--blanc);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.bloc-admin form {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.bloc-admin form input {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--creme-dark);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    color: var(--brun);
+    outline: none;
+}
+
+.bloc-admin form input:focus {
+    border-color: var(--vert);
+}

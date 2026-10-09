@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de commande</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formulaire.css') }}">
+</head>
+
+<body class="formulaire">
+
+    <header class="entete-form-conf">
+        <div class="entete-deco">
+            <a href="{{ url_for('index') }}" class="logo">
+                <span>✎</span>
+                <span class="logo-titre"><em>Equipement Scolaire ツ</em></span>
+            </a>
+            <div class="info-user" id="info-user"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="questionnaire">
+            <div class="intro-quest">
+                <h1>Votre commande</h1>
+                <p>Répondez aux questions ci-dessous, elles apparaissent une à la fois.</p>
+            </div>
+            <form id="form-commande">
+                <!-- Q1 -->
+                <div class="question-active" id="q1">
+                    <div class="quest-nbr">01</div>
+                    <div class="quest-contenu">
+                        <label for="niveau">Quel est votre niveau scolaire ?</label>
+                        <select id="niveau" name="niveau">
+                            <option value="">— Choisissez —</option>
+                            <option value="primaire">Primaire</option>
+                            <option value="secondaire">Secondaire</option>
+                            <option value="cegep">Cégep</option>
+                            <option value="universite">Université</option>
+                        </select>
+                        <span class="err-champ" id="err-niveau"></span>
+                    </div>
+                </div>
+                <!-- Q2 -->
+                <div class="question-active" id="q2">
+                    <div class="quest-nbr">02</div>
+                    <div class="quest-contenu">
+                        <label for="articles">Combien d'articles souhaitez-vous acheter ?</label>
+                        <input type="number" id="articles" name="articles" placeholder="Ex : 3" min="1" max="100">
+                        <span class="err-champ" id="err-articles"></span>
+                        <span class="note-champ">Maximum 100 articles par commande.</span>
+                    </div>
+                </div>
+                <!-- Q3 -->
+                <div class="question-active" id="q3">
+                    <div class="quest-nbr">03</div>
+                    <div class="quest-contenu">
+                        <label for="montant">Quel est le montant maximum d'achat souhaité ?</label>
+                        <input type="number" id="montant" name="montant" placeholder="Ex : 150.00" min="0" step="0.01">
+                        <span class="err-champ" id="err-montant-max"></span>
+                    </div>
+                </div>
+                <!-- Q4 -->
+                <div class="question-active" id="q4">
+                    <div class="quest-nbr">04</div>
+                    <div class="quest-contenu">
+                        <label for="prix-moyen">Quel est le prix moyen d'un article que vous voulez acheter ?</label>
+                        <input type="number" id="prix-moyen" name="prix-moyen" placeholder="Ex : 12.99" min="1"
+                            max="200" step="0.01">
+                        <span class="err-champ" id="err-prix-moyen"></span>
+                        <span class="note-champ">Le prix doit être entre 1 $ et 200 $.</span>
+                    </div>
+                </div>
+                <!-- Q5 -->
+                <div class="question-active" id="q5">
+                    <div class="quest-nbr">05</div>
+                    <div class="quest-contenu">
+                        <label>Souhaitez-vous acheter un sac d'école ?</label>
+                        <div class="groupe-radio">
+                            <label class="choix-radio">
+                                <input type="radio" name="sac" value="oui">
+                                <span>Oui</span>
+                            </label>
+                            <label class="choix-radio">
+                                <input type="radio" name="sac" value="non">
+                                <span>Non</span>
+                            </label>
+                        </div>
+                        <span class="err-champ" id="err-sac"></span>
+                    </div>
+                </div>
+                <!-- Q6 -->
+                <div class="question-active" id="q6">
+                    <div class="quest-nbr">06</div>
+                    <div class="quest-contenu">
+                        <label>Souhaitez-vous acheter une calculatrice scientifique ?</label>
+                        <div class="groupe-radio">
+                            <label class="choix-radio">
+                                <input type="radio" name="calculatrice" value="oui">
+                                <span>Oui</span>
+                            </label>
+                            <label class="choix-radio">
+                                <input type="radio" name="calculatrice" value="non">
+                                <span>Non</span>
+                            </label>
+                        </div>
+                        <span class="err-champ" id="err-calculatrice"></span>
+                    </div>
+                </div>
+                <!-- Q7 -->
+                <div class="question-active" id="q7">
+                    <div class="quest-nbr">07</div>
+                    <div class="quest-contenu">
+                        <label>Êtes-vous membre de la coop scolaire ?</label>
+                        <div class="groupe-radio">
+                            <label class="choix-radio">
+                                <input type="radio" name="membre" value="oui">
+                                <span>Oui</span>
+                            </label>
+                            <label class="choix-radio">
+                                <input type="radio" name="membre" value="non">
+                                <span>Non</span>
+                            </label>
+                        </div>
+                        <span class="err-champ" id="err-membre"></span>
+                    </div>
+                </div>
+                <!-- Q8 -->
+                <div class="question-active" id="q8">
+                    <div class="quest-nbr">08</div>
+                    <div class="quest-contenu">
+                        <label>Avez-vous un code promotionnel ?</label>
+                        <div class="groupe-radio">
+                            <label class="choix-radio">
+                                <input type="radio" name="code-promo" value="oui">
+                                <span>Oui</span>
+                            </label>
+                            <label class="choix-radio">
+                                <input type="radio" name="code-promo" value="non">
+                                <span>Non</span>
+                            </label>
+                        </div>
+                        <span class="err-champ" id="err-code-promo"></span>
+                    </div>
+                </div>
+                <!-- Q9 -->
+                <div class="question-cachee" id="q9">
+                    <div class="quest-nbr">09</div>
+                    <div class="quest-contenu">
+                        <label for="rabais">Quel est le montant du rabais de votre code promotionnel ?</label>
+                        <input type="number" id="rabais" name="rabais" placeholder="Ex : 25.00" min="0.01" max="300"
+                            step="0.01">
+                        <span class="err-champ" id="err-rabais-promo"></span>
+                        <span class="note-champ">Maximum 300 $ de rabais.</span>
+                    </div>
+                </div>
+                <!-- Bouton soumettre -->
+                <div class="div-bouton">
+                    <button type="submit" class="btn-principal">Passer la commande</button>
+                </div>
+
+            </form>
+            <!-- Panneau de refus -->
+            <div class="panneau-refus-cachee" id="panneau-cachee">
+                <h2 id="refus-message">&nbsp;</h2>
+                <button class="btn-secondaire" id="btn-nouv-commande">Faire une nouvelle commande</button>
+            </div>
+
+        </div>
+        <!-- Résumé de la commande -->
+        <aside class="resume-commande">
+            <div class="recap">
+                <h3>Résumé</h3>
+                <div class="recap-ligne" id="recap-niveau"><span>Niveau</span><span>—</span></div>
+                <div class="recap-ligne" id="recap-articles"><span>Articles</span><span>—</span></div>
+                <div class="recap-ligne" id="recap-prix"><span>Prix moyen</span><span>—</span></div>
+                <div class="recap-ligne" id="recap-sac"><span>Sac d'école</span><span>—</span></div>
+                <div class="recap-ligne" id="recap-calc"><span>Calculatrice</span><span>—</span></div>
+                <div class="recap-separateurr"></div>
+                <div class="recap-ligne recap-total" id="recap-total"><span>Estimé</span><span>0,00 $</span></div>
+                <div class="recap-ligne recap-rabais" id="recap-rabais"><span>Rabais</span><span
+                        id="recap-rabais-val">—</span></div>
+                <div class="recap-ligne recap-final" id="recap-final"><span>Total final</span><span
+                        id="recap-final-val">—</span></div>
+            </div>
+        </aside>
+    </main>
+    <script src="{{ url_for('static', filename='js/formulaire.js') }}"></script>
+</body>
+
+</html>
